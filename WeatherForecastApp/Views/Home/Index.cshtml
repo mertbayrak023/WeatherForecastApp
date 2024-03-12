@@ -1,0 +1,254 @@
+﻿@model IEnumerable<WeatherForecastApp.Models.Forecast>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Create New", "Create") |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ForecastID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ForecastID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ForecastID })
+                @if (true) //bu break komutunu if yazmadan nasıl kullanıcagımı bilmiyorum
+                {
+                    break;
+                }
+            </td>
+        </tr>
+    }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>Weather Forecast App by Mert Bayrak</title>
+
+    <!-- Loading third party fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Loading main css file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/ie-support/html5.js"></script>
+    <script src="js/ie-support/respond.js"></script>
+    <![endif]-->
+    
+</head>
+
+
+<body>
+
+    <div class="site-content">
+        <div class="site-header">
+            <div class="container">
+                <a href="index.html" class="branding">
+                    <img src="images/logo.png" alt="" class="logo">
+                    <div class="logo-type">
+                        <h1 class="site-title">HAVA DURUMU TAHMİN UYGULAMASI</h1>
+                        <small class="site-description">Beykoz Üniversitesi Yazılım Mühendisliği</small>
+                    </div>
+                </a>
+
+                <!-- Default snippet for navigation -->
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item current-menu-item">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        <li class="menu-item">@Html.ActionLink("Hakkımızda", "About", "Home")</li>
+                        <li class="menu-item">@Html.ActionLink("İletişim", "CreateContact", "Home")</li>
+                    </ul> <!-- .menu -->
+                </div> <!-- .main-navigation -->
+
+                <div class="mobile-navigation"></div>
+
+            </div>
+        </div> <!-- .site-header -->
+        @*<div class="hero" data-bg-image="images/banner.png">
+            <div class="container">
+                <form action="Index" class="find-location" method="post">
+                    <input type="text" placeholder="Find your location...">
+                    <input type="submit" value="Find">
+                </form>
+            </div>
+        </div>*@
+
+        @*data-bg-image="images/banner.png"*@
+
+        <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?landscape') ">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "find-location" }))
+            {
+                @Html.TextBox("Location")<input type="submit" value="Ara" name="Location" />
+            }
+        </div>
+
+        @if (Model.Count() == 0)
+        {
+            <br />
+            <h1 style="color:red">No Matching City</h1>
+        }
+
+        @foreach (var item in Model)
+        {
+            //if (@Html.DisplayFor(modelItem => item.Location).ToString() == "Istanbul" && @Html.DisplayFor(modelItem => item.Day).ToString() == "Pazartesi") //buraya locationla dogrulama yapılacak ondan sonra onun bilgileri gelicek
+            //{
+            <div class="forecast-table">
+                <div class="container">
+                    <div class="forecast-container">
+                        <div class="today forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.Day)</div>
+                                <div class="date">6 Oct</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="location">@Html.DisplayFor(modelItem => item.Location)</div>
+                                <div class="degree">
+                                    <div class="num">@Html.DisplayFor(modelItem => item.Degree)<sup>o</sup>C</div>
+                                    <div class="forecast-icon">
+                                        <img src="images/icons/icon-1.svg" alt="" width=90>
+                                    </div>
+                                </div>
+                                <span><img src="images/icon-umberella.png" alt="">@Html.DisplayFor(modelItem => item.Rain)%</span>
+                                <span><img src="images/icon-wind.png" alt="">@Html.DisplayFor(modelItem => item.Wind)km/h</span>
+                                <span><img src="images/icon-compass.png" alt="">@Html.DisplayFor(modelItem => item.Direction)</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DayTuesday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-3.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.TuesdayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.TuesdayRain)%</small>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DayWednesday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-5.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.WednesdayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.WednesdayRain)%</small>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DayThursday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-7.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.ThursdayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.ThursdayRain)%</small>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DayFriday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-12.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.FridayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.FridayRain)%</small>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DaySaturday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-13.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.SaturdayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.SaturdayRain)%</small>
+                            </div>
+                        </div>
+
+                        <div class="forecast">
+                            <div class="forecast-header">
+                                <div class="day">@Html.DisplayFor(modelItem => item.DaySunday)</div>
+                            </div> <!-- .forecast-header -->
+                            <div class="forecast-content">
+                                <div class="forecast-icon">
+                                    <img src="images/icons/icon-14.svg" alt="" width=48>
+                                </div>
+                                <div class="degree">@Html.DisplayFor(modelItem => item.SundayDegree)<sup>o</sup>C</div>
+                                <small>@Html.DisplayFor(modelItem => item.SundayRain)%</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <iframe width="1135"
+                    height="350"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBkquZbTtGZ9hsGS9bH6M0UAbS4LOe782E
+                                        &q=Turkey" allowfullscreen>
+            </iframe>
+        }
+        @*}*@
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        @*<form action="#Email" class="subscribe-form">
+                            <input type="text" placeholder="Enter your email to subscribe...">
+                            <input type="submit" value="Subscribe" name="email">
+                        </form>*@
+                        <div class="subscribe-form">
+                            @using (Html.BeginForm("Email", "Home", FormMethod.Get, new { @class = "subscribe-form" }))
+                            {
+                                @Html.TextBox("email", "", new { placeholder = "Abone olmak için mail adresinizi girin..." })
+                                <input type="submit" value="Abone Ol" name="Email" />
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/beykozedutr/?locale=tr_TR" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/beykozedutr" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.youtube.com/watch?v=RgHgDqPFHic" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <a href="https://twitter.com/beykozedutr" target="_blank"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+            </div>
+        </footer> <!-- .site-footer -->
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

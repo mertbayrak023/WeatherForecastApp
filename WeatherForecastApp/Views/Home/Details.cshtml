@@ -1,0 +1,227 @@
+﻿@model WeatherForecastApp.Models.Forecast
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Forecast</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayTuesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayTuesday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuesdayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuesdayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuesdayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuesdayRain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayWednesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayWednesday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WednesdayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WednesdayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WednesdayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WednesdayRain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayThursday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayThursday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThursdayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThursdayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThursdayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThursdayRain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayFriday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayFriday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FridayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FridayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FridayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FridayRain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaySaturday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaySaturday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaturdayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaturdayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaturdayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaturdayRain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaySunday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaySunday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SundayDegree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SundayDegree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SundayRain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SundayRain)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ForecastID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

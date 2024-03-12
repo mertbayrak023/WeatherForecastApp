@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ForecastDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="EmailName" />
+          </Key>
+          <Property Name="EmailName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Forecast">
+          <Key>
+            <PropertyRef Name="ForecastID" />
+          </Key>
+          <Property Name="ForecastID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Degree" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rain" Type="int" Nullable="false" />
+          <Property Name="Wind" Type="int" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="DayTuesday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TuesdayDegree" Type="int" Nullable="false" />
+          <Property Name="TuesdayRain" Type="int" Nullable="false" />
+          <Property Name="DayWednesday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WednesdayDegree" Type="int" Nullable="false" />
+          <Property Name="WednesdayRain" Type="int" Nullable="false" />
+          <Property Name="DayThursday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThursdayDegree" Type="int" Nullable="false" />
+          <Property Name="ThursdayRain" Type="int" Nullable="false" />
+          <Property Name="DayFriday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FridayDegree" Type="int" Nullable="false" />
+          <Property Name="FridayRain" Type="int" Nullable="false" />
+          <Property Name="DaySaturday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SaturdayDegree" Type="int" Nullable="false" />
+          <Property Name="SaturdayRain" Type="int" Nullable="false" />
+          <Property Name="DaySunday" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SundayDegree" Type="int" Nullable="false" />
+          <Property Name="SundayRain" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ForecastDBModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forecast" EntityType="Self.Forecast" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForecastDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Forecast">
+          <Key>
+            <PropertyRef Name="ForecastID" />
+          </Key>
+          <Property Name="ForecastID" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Degree" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rain" Type="Int32" Nullable="false" />
+          <Property Name="Wind" Type="Int32" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Day" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DayTuesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TuesdayDegree" Type="Int32" Nullable="false" />
+          <Property Name="TuesdayRain" Type="Int32" Nullable="false" />
+          <Property Name="DayWednesday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WednesdayDegree" Type="Int32" Nullable="false" />
+          <Property Name="WednesdayRain" Type="Int32" Nullable="false" />
+          <Property Name="DayThursday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThursdayDegree" Type="Int32" Nullable="false" />
+          <Property Name="ThursdayRain" Type="Int32" Nullable="false" />
+          <Property Name="DayFriday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FridayDegree" Type="Int32" Nullable="false" />
+          <Property Name="FridayRain" Type="Int32" Nullable="false" />
+          <Property Name="DaySaturday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SaturdayDegree" Type="Int32" Nullable="false" />
+          <Property Name="SaturdayRain" Type="Int32" Nullable="false" />
+          <Property Name="DaySunday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SundayDegree" Type="Int32" Nullable="false" />
+          <Property Name="SundayRain" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ForecastDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Forecasts" EntityType="Self.Forecast" />
+          <EntitySet Name="Email" EntityType="ForecastDBModel.Email" />
+          <EntitySet Name="Contact" EntityType="ForecastDBModel.Contact" />
+        </EntityContainer>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="EmailName" />
+          </Key>
+          <Property Name="EmailName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForecastDBModelStoreContainer" CdmEntityContainer="ForecastDBEntities">
+          <EntitySetMapping Name="Forecasts">
+            <EntityTypeMapping TypeName="ForecastDBModel.Forecast">
+              <MappingFragment StoreEntitySet="Forecast">
+                <ScalarProperty Name="SundayRain" ColumnName="SundayRain" />
+                <ScalarProperty Name="SundayDegree" ColumnName="SundayDegree" />
+                <ScalarProperty Name="DaySunday" ColumnName="DaySunday" />
+                <ScalarProperty Name="SaturdayRain" ColumnName="SaturdayRain" />
+                <ScalarProperty Name="SaturdayDegree" ColumnName="SaturdayDegree" />
+                <ScalarProperty Name="DaySaturday" ColumnName="DaySaturday" />
+                <ScalarProperty Name="FridayRain" ColumnName="FridayRain" />
+                <ScalarProperty Name="FridayDegree" ColumnName="FridayDegree" />
+                <ScalarProperty Name="DayFriday" ColumnName="DayFriday" />
+                <ScalarProperty Name="ThursdayRain" ColumnName="ThursdayRain" />
+                <ScalarProperty Name="ThursdayDegree" ColumnName="ThursdayDegree" />
+                <ScalarProperty Name="DayThursday" ColumnName="DayThursday" />
+                <ScalarProperty Name="WednesdayRain" ColumnName="WednesdayRain" />
+                <ScalarProperty Name="WednesdayDegree" ColumnName="WednesdayDegree" />
+                <ScalarProperty Name="DayWednesday" ColumnName="DayWednesday" />
+                <ScalarProperty Name="TuesdayRain" ColumnName="TuesdayRain" />
+                <ScalarProperty Name="TuesdayDegree" ColumnName="TuesdayDegree" />
+                <ScalarProperty Name="DayTuesday" ColumnName="DayTuesday" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="ForecastID" ColumnName="ForecastID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Rain" ColumnName="Rain" />
+                <ScalarProperty Name="Wind" ColumnName="Wind" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Email">
+            <EntityTypeMapping TypeName="ForecastDBModel.Email">
+              <MappingFragment StoreEntitySet="Email">
+                <ScalarProperty Name="EmailName" ColumnName="EmailName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="ForecastDBModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

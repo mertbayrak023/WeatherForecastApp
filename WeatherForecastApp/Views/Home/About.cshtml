@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Hakkımızda";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div class="site-content">
+
+        <div class="site-header">
+            <div class="container">
+                <a href="~/Home/Index" class="branding">
+                    <img src="~/images/logo.png" alt="" class="logo">
+                    <div class="logo-type">
+                        <h1 class="site-title">HAVA DURUMU TAHMİN UYGULAMASI</h1>
+                        <small class="site-description">Beykoz Üniversitesi Yazılım Mühendisliği</small>
+                    </div>
+                </a>
+
+                <!-- Default snippet for navigation -->
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                        <li class="menu-item current-menu-item">@Html.ActionLink("Hakkımızda", "About", "Home")</li>
+                        <li class="menu-item">@Html.ActionLink("İletişim", "CreateContact", "Home")</li>
+                    </ul> <!-- .menu -->
+                </div> <!-- .main-navigation -->
+
+                <div class="mobile-navigation"></div>
+
+            </div>
+        </div> <!-- .site-header -->
+
+        <main class="main-content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/">Ana Sayfa</a>
+                    <span>Hakkımızda</span>
+                </div>
+            </div>
+            <div class="fullwidth-block">
+                <div class="container">
+                    <div><h1 class="section-title">Proje Takimimiz : </h1></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="photo">
+                                <img src="~/images/ResimYok.png" alt="" class="photo-preview photo-detail">
+                                <div class="photo-details">
+                                    <h2 class="photo-title"><a href="#">Mehmet Mert Bayrak</a></h2>
+                                    <h4>Projedeki Görevleri :</h4>
+                                    <p>Frontend, Template, Asp.net MVC, Database Baglantilari</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="https://www.beykoz.edu.tr/content/data/5747f99fd7fc4-bu-01.jpg" style="background-repeat:no-repeat; background-size:cover"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main> <!-- .main-content -->
+    </div>
+</body>
+</html>
